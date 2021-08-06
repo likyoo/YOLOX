@@ -32,6 +32,7 @@ def configure_module(ulimit_value=8192):
     # system setting
     try:
         import resource
+
         rlimit = resource.getrlimit(resource.RLIMIT_NOFILE)
         resource.setrlimit(resource.RLIMIT_NOFILE, (ulimit_value, rlimit[1]))
     except Exception:
